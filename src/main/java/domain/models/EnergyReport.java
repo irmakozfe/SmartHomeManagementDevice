@@ -1,36 +1,24 @@
-package infrastructure.persistence.entities;
+package domain.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import domain.models.device.Device;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-@Entity
 public class EnergyReport {
-
-    @Column(nullable = false)
-    @Id
     private int energyReportId;
-
-    private Date date;
-
-    @ManyToOne
+    private LocalDate date;
     private Device device;
-
-    @Column
     private double totalConsumption;
 
-    public EnergyReport() {
-
+    public EnergyReport(int energyReportId, Device device, double totalConsumption) {
+        this.energyReportId = energyReportId;
+        this.date = LocalDate.now();
+        this.device = device;
+        this.totalConsumption = totalConsumption;
     }
 
-    public EnergyReport(int energyReportId, Date date, Device device, double totalComsumption) {
-        this.energyReportId = energyReportId;
-        this.date = date;
-        this.device = device;
-        this.totalConsumption = 0;
+    public double dailyTotalConsumption(){
+        return device.getTotalConsumptionPerHour() * device.getDailyConsumption();
     }
 
     public int getEnergyReportId() {
@@ -41,11 +29,11 @@ public class EnergyReport {
         this.energyReportId = energyReportId;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

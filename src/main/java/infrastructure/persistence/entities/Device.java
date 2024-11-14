@@ -6,12 +6,15 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+//////mapper kullanmamiz gerekiyor mu entity -> domain arasi gecisi saglamak icin
+
+
 @Entity
 public class Device {
 
     public enum deviceType{
-        Switchable,
-        Adjustable
+        SWITCHABLE,
+        ADJUSTABLE
     }
 
     @Column(nullable = false)
@@ -24,12 +27,17 @@ public class Device {
     @Column(nullable = false)
     private deviceType deviceType;
 
+    //is it okay??
+    @Column(nullable = false)
+    private double totalConsumptionPerHour;
+
     @OneToMany
     private List<EnergyReport> energyReports;
 
     @OneToMany
     private List<AutomationRule> automationRules;
 
+    //column olarak vermemize gerek var mi
     @ManyToOne
     private Room room;
 
