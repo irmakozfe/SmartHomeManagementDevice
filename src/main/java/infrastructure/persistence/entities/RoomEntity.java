@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Room {
+public class RoomEntity {
 
     @Column(nullable = false)
     @Id
@@ -19,16 +19,16 @@ public class Room {
     private String name;
 
     @OneToMany
-    private List<Device> devices;
+    private List<DeviceEntity> deviceEntities;
 
-    public Room(){
+    public RoomEntity(){
 
     }
 
-    public Room(int roomId, String name) {
+    public RoomEntity(int roomId, String name) {
         RoomId = roomId;
         this.name = name;
-        this.devices = new ArrayList<>();
+        this.deviceEntities = new ArrayList<>();
     }
 
     public int getRoomId() {
@@ -47,11 +47,11 @@ public class Room {
         this.name = name;
     }
 
-    public List<Device> getDevices() {
-        return devices;
+    public List<DeviceEntity> getDevices() {
+        return deviceEntities;
     }
 
-    public void setDevices(List<Device> devices) {
-        this.devices = devices;
+    public void setDevices(List<DeviceEntity> deviceEntities) {
+        this.deviceEntities = deviceEntities;
     }
 }

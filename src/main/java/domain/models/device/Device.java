@@ -1,8 +1,8 @@
 package domain.models.device;
 
-import infrastructure.persistence.entities.AutomationRule;
-import infrastructure.persistence.entities.EnergyReport;
-import infrastructure.persistence.entities.Room;
+import domain.models.AutomationRule;
+import domain.models.Room;
+import domain.models.EnergyReport;
 
 import java.time.Duration;
 import java.time.LocalTime;

@@ -1,6 +1,6 @@
 package domain.models;
 
-import infrastructure.persistence.entities.Device;
+import domain.models.device.Device;
 
 import java.util.List;
 

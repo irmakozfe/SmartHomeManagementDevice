@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class AutomationRule {
+public class AutomationRuleEntity {
 
     @Column(nullable = false)
     @Id
@@ -23,16 +23,16 @@ public class AutomationRule {
     //private Action action;
 
     @ManyToMany
-    private List<Device> devices;
+    private List<DeviceEntity> deviceEntities;
 
-    public AutomationRule() {
+    public AutomationRuleEntity() {
 
     }
 
-    public AutomationRule(int automationRuleId, String name) {
+    public AutomationRuleEntity(int automationRuleId, String name) {
         this.automationRuleId = automationRuleId;
         this.name = name;
-        this.devices = new ArrayList<>();
+        this.deviceEntities = new ArrayList<>();
     }
 
     public int getAutomationRuleId() {
@@ -51,11 +51,11 @@ public class AutomationRule {
         this.name = name;
     }
 
-    public List<Device> getDevices() {
-        return devices;
+    public List<DeviceEntity> getDevices() {
+        return deviceEntities;
     }
 
-    public void setDevices(List<Device> devices) {
-        this.devices = devices;
+    public void setDevices(List<DeviceEntity> deviceEntities) {
+        this.deviceEntities = deviceEntities;
     }
 }

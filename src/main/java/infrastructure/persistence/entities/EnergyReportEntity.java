@@ -8,7 +8,7 @@ import jakarta.persistence.ManyToOne;
 import java.util.Date;
 
 @Entity
-public class EnergyReport {
+public class EnergyReportEntity {
 
     @Column(nullable = false)
     @Id
@@ -17,19 +17,19 @@ public class EnergyReport {
     private Date date;
 
     @ManyToOne
-    private Device device;
+    private DeviceEntity deviceEntity;
 
     @Column
     private double totalConsumption;
 
-    public EnergyReport() {
+    public EnergyReportEntity() {
 
     }
 
-    public EnergyReport(int energyReportId, Date date, Device device, double totalComsumption) {
+    public EnergyReportEntity(int energyReportId, Date date, DeviceEntity deviceEntity, double totalComsumption) {
         this.energyReportId = energyReportId;
         this.date = date;
-        this.device = device;
+        this.deviceEntity = deviceEntity;
         this.totalConsumption = 0;
     }
 
@@ -49,12 +49,12 @@ public class EnergyReport {
         this.date = date;
     }
 
-    public Device getDevice() {
-        return device;
+    public DeviceEntity getDevice() {
+        return deviceEntity;
     }
 
-    public void setDevice(Device device) {
-        this.device = device;
+    public void setDevice(DeviceEntity deviceEntity) {
+        this.deviceEntity = deviceEntity;
     }
 
     public double getTotalConsumption() {

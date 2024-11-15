@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @Entity
-public class Device {
+public class DeviceEntity {
 
     public enum deviceType{
         SWITCHABLE,
@@ -32,25 +32,26 @@ public class Device {
     private double totalConsumptionPerHour;
 
     @OneToMany
-    private List<EnergyReport> energyReports;
+    private List<EnergyReportEntity> energyReportEntities;
 
+    ///duzelt///
     @OneToMany
-    private List<AutomationRule> automationRules;
+    private List<AutomationRuleEntity> automationRules;
 
     //column olarak vermemize gerek var mi
     @ManyToOne
-    private Room room;
+    private RoomEntity room;
 
-    public Device() {
+    public DeviceEntity() {
 
     }
 
-    public Device(int deviceId, deviceType deviceType, Room room) {
+    public DeviceEntity(int deviceId, deviceType deviceType, RoomEntity room) {
         this.deviceId = deviceId;
         this.status = false;
         this.deviceType = deviceType;
         this.room = room;
-        this.energyReports = new ArrayList<>();
+        this.energyReportEntities = new ArrayList<>();
         this.automationRules = new ArrayList<>();
     }
 
@@ -70,35 +71,35 @@ public class Device {
         this.status = status;
     }
 
-    public Device.deviceType getDeviceType() {
+    public DeviceEntity.deviceType getDeviceType() {
         return deviceType;
     }
 
-    public void setDeviceType(Device.deviceType deviceType) {
+    public void setDeviceType(DeviceEntity.deviceType deviceType) {
         this.deviceType = deviceType;
     }
 
-    public List<EnergyReport> getEnergyReports() {
-        return energyReports;
+    public List<EnergyReportEntity> getEnergyReports() {
+        return energyReportEntities;
     }
 
-    public void setEnergyReports(List<EnergyReport> energyReports) {
-        this.energyReports = energyReports;
+    public void setEnergyReports(List<EnergyReportEntity> energyReportEntities) {
+        this.energyReportEntities = energyReportEntities;
     }
 
-    public List<AutomationRule> getAutomationRules() {
+    public List<AutomationRuleEntity> getAutomationRules() {
         return automationRules;
     }
 
-    public void setAutomationRules(List<AutomationRule> automationRules) {
+    public void setAutomationRules(List<AutomationRuleEntity> automationRules) {
         this.automationRules = automationRules;
     }
 
-    public Room getRoom() {
+    public RoomEntity getRoom() {
         return room;
     }
 
-    public void setRoom(Room room) {
+    public void setRoom(RoomEntity room) {
         this.room = room;
     }
 }

@@ -1,7 +1,5 @@
 package domain.models;
 
-import infrastructure.persistence.entities.AutomationRule;
-
 import java.util.ArrayList;
 import java.util.List;
 

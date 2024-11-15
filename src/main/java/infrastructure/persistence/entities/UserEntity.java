@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class User {
+public class UserEntity {
 
     //int oder Long???
     //private oder protected???
@@ -24,13 +24,13 @@ public class User {
     private String password;
 
     @OneToMany
-    private List<AutomationRule> automationRules;
+    private List<AutomationRuleEntity> automationRules;
 
-    public User() {
+    public UserEntity() {
 
     }
 
-    public User(int userId, String name, String email, String password) {
+    public UserEntity(int userId, String name, String email, String password) {
         this.userId = userId;
         this.name = name;
         this.email = email;
@@ -38,7 +38,7 @@ public class User {
         this.automationRules = new ArrayList<>();
     }
 
-    public void addAutomationRule(AutomationRule automationRule){
+    public void addAutomationRule(AutomationRuleEntity automationRule){
         automationRules.add(automationRule);
     }
 
@@ -74,11 +74,11 @@ public class User {
         this.password = password;
     }
 
-    public List<AutomationRule> getAutomationRules() {
+    public List<AutomationRuleEntity> getAutomationRules() {
         return automationRules;
     }
 
-    public void setAutomationRules(List<AutomationRule> automationRules) {
+    public void setAutomationRules(List<AutomationRuleEntity> automationRules) {
         this.automationRules = automationRules;
     }
 }
